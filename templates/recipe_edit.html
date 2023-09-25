@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Recipe Edit</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/recipe/{{recipe.id}}/update" method="post" class="col-md-5">
+            <a href="/add/recipe">Add recipe</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+            <h1>Edit a recipe</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+                <input type="hidden" name="id" value="{{recipe.id}}">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" value="{{recipe.name}}">
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients</label>
+                <input type="text" name="ingredients" class="form-control" value="{{recipe.ingredients}}">
+            </div>
+            <div class="form-group">
+                <label for="ingredients">ingredients</label>
+                <input type="text" name="ingredients" class="form-control" value="{{recipe.ingredients}}">
+            </div>
+            <div class="form-group">
+                <label for="instructions">Instructions</label>
+                <input type="text" name="instructions" class="form-control" value="{{recipe.instructions}}">
+            </div>
+            <button class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://kit.fontawesome.com/64efcc2d17.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="/login" method="post">
+            <h2 class="text-success">Login</h2>
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Cannot Login</strong>
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <i class="fa-solid fa-envelope"></i>
+                <label for="email"></label>
+                <input type="text" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <i class="fa-solid fa-lock" id=""></i>
+                <label for="password"></label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <input type="submit" value="Login" class="btn btn-success">
+        </form>
+    </div>
+
+</body>
+
+</html>
